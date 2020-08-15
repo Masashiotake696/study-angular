@@ -1,0 +1,53 @@
+#outer {
+  height: 200px;
+  width: 350px;
+  margin: 50px;
+  padding: 10px;
+  border: 1px solid #000;
+}
+
+#inner {
+  height: 10px;
+  width: 100px;
+  margin-top: 50px;
+  margin-left: 30px;
+  padding: 20px;
+  border: 1px solid #000;
+}
+
+.table {
+  border-collapse: collapse;
+}
+
+.table tr:not(:first-child) {
+  border-top: 1px solid #000;
+}
+
+.pagination {
+  border-collapse: collapse;
+  font-size: 0;
+}
+
+.pagination li {
+  font-size: 16px;
+  padding: 2px 5px;
+  list-style: none;
+  display: inline-block;
+  border: 1px solid #000;
+}
+
+.pagination li a {
+  text-decoration: none;
+}
+
+.event,
+.book,
+.wings {
+  border: 3px solid #000;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.form input.ng-dirty.ng-invalid {
+  background-color: #fee;
+}
