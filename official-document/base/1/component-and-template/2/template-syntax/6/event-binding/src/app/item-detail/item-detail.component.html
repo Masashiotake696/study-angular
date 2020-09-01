@@ -1,0 +1,7 @@
+<div>
+  <img src="{{ itemImageUrl }}" [style.display]="displayNone" />
+  <span [style.text-decoration]="lineThrough">{{ item.name }}</span>
+  <div>
+    <button (click)="delete()">Delete</button>
+  </div>
+</div>

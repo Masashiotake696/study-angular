@@ -1,0 +1,19 @@
+<h3>Current customer: {{ currentCustomer }}</h3>
+<p>{{ title }}</p>
+
+<img src="{{ itemImageUrl }}">
+<img [src]="itemImageUrl">
+
+<!-- "The sum of 1 + 1 is 2" -->
+<p>The sum of 1 + 1 is {{ 1 + 1 }}</p>
+
+<!-- "The sum of 1 + 1 is not 4" -->
+<p>The sum of 1 + 1 is not {{ 1 + 1 + getVal() }}</p>
+
+<ul>
+  <li *ngFor="let customer of customers">{{ customer.name }}</li>
+</ul>
+
+<label for="something">Type something:</label>
+<input id="something" type="text" name="something" #customerInput (input)="0" />
+<p>{{ customerInput.value }}</p>

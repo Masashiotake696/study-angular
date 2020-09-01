@@ -1,0 +1,11 @@
+<div class="parent">
+  <h2>AfterView</h2>
+
+  <app-after-view *ngIf="show"></app-after-view>
+
+  <h4>-- AfterView Logs --</h4>
+  <p>
+    <button (click)="reset()">Reset</button>
+  </p>
+  <div *ngFor="let message of logger.logs">{{ message }}</div>
+</div>

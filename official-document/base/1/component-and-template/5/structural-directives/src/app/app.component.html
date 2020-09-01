@@ -1,0 +1,156 @@
+<div>
+  <p *ngIf="true">
+    Expression is true and ngIf is true.
+    This paragraph is in the DOM.
+  </p>
+  <p *ngIf="false">
+    Expression is false and ngIf is false.
+    This paragraph is not in the DOM.
+  </p>
+</div>
+
+<div>
+  <h2>NgIf</h2>
+  <!-- シュガーシンタックス -->
+  <div *ngIf="hero" class="name">{{ hero.name }}</div>
+
+  <hr>
+
+  <!-- デシュガー -->
+  <ng-template [ngIf]="hero">
+    <div class="name">{{ hero.name }}</div>
+  </ng-template>
+</div>
+
+<div>
+  <h2>NgFor</h2>
+  <!-- シュガーシンタックス -->
+  <div *ngFor="let hero of heroes; let i=index; let odd=odd; trackBy: trackById" [class.odd]="odd">
+    ({{ i }}) {{ hero.name }}
+  </div>
+
+  <hr>
+
+  <!-- デシュガー -->
+  <ng-template ngFor let-hero [ngForOf]="heroes" let-i="index" let-odd="odd" [ngForTrackBy]="trackById">
+    <div [class.odd]="odd">
+      ({{ i }}) {{ hero.name }}
+    </div>
+  </ng-template>
+</div>
+
+
+<div>
+  <h2>NgSwitch</h2>
+
+  <!-- シュガーシンタックス -->
+  <div [ngSwitch]="hero?.emotion">
+    <p *ngSwitchCase="'happy'">Hero is happy</p>
+    <p *ngSwitchCase="'sad'">Hero is sad</p>
+    <p *ngSwitchCase="'confused'">Hero is confused</p>
+    <p *ngSwitchDefault>Hero is normal</p>
+  </div>
+
+  <!-- デシュガー -->
+  <div [ngSwitch]="hero?.emotion">
+    <ng-template [ngSwitchCase]="'happy'">
+      <p>Hero is happy</p>
+    </ng-template>
+    <ng-template [ngSwitchCase]="'sad'">
+      <p>Hero is sad</p>
+    </ng-template>
+    <ng-template [ngSwitchCase]="'confused'">
+      <p>Hero is confused</p>
+    </ng-template>
+    <ng-template ngSwitchDefault>
+      <p>Hero is normal</p>
+    </ng-template>
+  </div>
+</div>
+
+<div>
+  <h2>ng-template</h2>
+
+  <!-- <ng-template>はビューをレンダリングする前にコメントに置き換えられる -->
+  <p>Hip!</p>
+  <ng-template>
+    <p>Hip!</p>
+  </ng-template>
+  <p>Hooray!</p>
+</div>
+
+<div>
+  <h2>ng-container</h2>
+
+  <!-- ホスト要素がない場合は、通常、コンテンツを<div>などのネイティブHTMLコンテナ要素にラップし、そのラッパーにディレクティブをアタッチできる -->
+  <div *ngIf="hero" class="name">{{ hero.name }}</div>
+
+  <!-- グルーピングした要素はテンプレートの外観を崩すかもしれない -->
+  <p>
+    I turned the corner
+    <span *ngIf="hero">
+      and saw {{hero.name}}. I waved
+    </span>
+    and continued on my way.
+  </p>
+
+  <!-- <select>要素内で*ngForや*ngIfは使えない -->
+  <div>
+    Pick your favorite hero
+    (<label><input type="checkbox" checked (change)="showSad = !showSad">show sad</label>)
+  </div>
+  <select [(ngModel)]="heroSelected">
+    <span *ngFor="let h of heroes">
+      <span *ngIf="showSad || h.emotion !== 'sad'">
+        <option [ngValue]="h">{{h.name}} ({{h.emotion}})</option>
+      </span>
+    </span>
+  </select>
+  <p *ngIf="heroSelected">({{ heroSelected.id }}) {{ heroSelected.name }}</p>
+
+  <!-- <ng-container>はスタイルやレイアウトを接続しないグルーピング要素で、DOM内に配置されない -->
+  <p>
+    I turned the corner
+    <ng-container *ngIf="hero">
+      and saw {{hero.name}}. I waved
+    </ng-container>
+    and continued on my way.
+  </p>
+
+  <div>
+    Pick your favorite hero
+    (<label><input type="checkbox" checked (change)="showSad = !showSad">show sad</label>)
+  </div>
+  <select [(ngModel)]="heroSelected">
+    <ng-container *ngFor="let h of heroes">
+      <ng-container *ngIf="showSad || h.emotion !== 'sad'">
+        <option [ngValue]="h">{{h.name}} ({{h.emotion}})</option>
+      </ng-container>
+    </ng-container>
+  </select>
+  <p *ngIf="heroSelected">({{ heroSelected.id }}) {{ heroSelected.name }}</p>
+</div>
+
+<div>
+  <h2>appUnless</h2>
+
+  <p *appUnless="condition" class="unless a">
+    (A) This paragraph is displayed because the condition is false.
+  </p>
+
+  <p *appUnless="!condition" class="unless b">
+    (B) Although the condition is true,
+    this paragraph is displayed because appUnless is set to false.
+  </p>
+
+  <button (click)="condition = !condition">Toggle condition</button>
+
+  <hr>
+
+  <!-- デシュガー -->
+  <ng-template [appUnless]="condition">
+    <p class="unless a">
+      (A) This paragraph is displayed because the condition is false.
+    </p>
+  </ng-template>
+</div>

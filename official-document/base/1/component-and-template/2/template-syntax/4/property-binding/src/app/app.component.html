@@ -1,0 +1,32 @@
+<div>
+  <img [src]="imageUrl">
+</div>
+
+<table>
+  <tr>
+    <td>Span 1 columns</td>
+    <td [colSpan]="2">Span 2 columns</td>
+    <td>Span 1 columns</td>
+  </tr>
+  <tr>
+    <td>test</td>
+    <td>test</td>
+    <td>test</td>
+    <td>test</td>
+  </tr>
+</table>
+
+<div>
+  <button [disabled]="isUnchanged">Disabled Button</button>
+</div>
+
+<p [ngClass]="classes">[ngClass] binding to the classes property making this blue</p>
+
+<app-item-detail [childItem]="parentItem"></app-item-detail>
+
+<app-item-list [items]="currentItems"></app-item-list>
+
+<app-string-init prefix="This is a one-time initialized string"></app-string-init>
+
+<p><span>"{{ evilTitle }}" is the <i>interpolated</i> evil title.</span></p>
+<p>"<span [innerHTML]="evilTitle"></span>" is the <i>interpolated</i> evil title.</p>

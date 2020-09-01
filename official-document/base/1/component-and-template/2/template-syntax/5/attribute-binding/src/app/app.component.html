@@ -1,0 +1,26 @@
+<button [attr.aria-label]="actionName">{{ actionName }} with Aria</button>
+
+<p [class.foo]="hasFoo">Foo</p>
+<p [class]="classExprString">classExpr String</p>
+<p [class]="classExprObject">classExpr Object</p>
+<p [class]="classExprArray">classExpr Array</p>
+
+<div class="style-binding" [style.width]="widthPx">widthPx</div>
+<div class="style-binding" [style.width.px]="width">width</div>
+<div class="style-binding" [style]="styleExprString">styleExprString</div>
+<div class="style-binding" [style]="styleExprObject">styleExprObject</div>
+
+<!-- [class.xxx]と[style.xxx]の方が[class]や[style]の指定よりも優先される -->
+<h3>Basic specificity</h3>
+<div [class.special]="isSpecial" [class]="classExpr">Some text.</div>
+<div [style.color]="color" [style]="styleExpr">Some text.</div>
+
+<!-- [class.xxx]と[style.xxx]の方がコンポーネントのHostBindingの指定よりも優先される -->
+<h3>Source specificity</h3>
+<app-comp-with-host-binding [class.big]="isBig"></app-comp-with-host-binding>
+<app-comp-with-host-binding [style.color]="red"></app-comp-with-host-binding>
+
+<!-- [class]と[style]の方がclassやstyleの指定よりも優先される -->
+<h3>Dynamic vs static</h3>
+<div class="special" [class]="colorBlueClass">Some text.</div>
+<div style="color: blue;" [style]="colorRedStyle">Some text.</div>

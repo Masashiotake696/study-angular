@@ -1,0 +1,30 @@
+<div>
+  <h2>Keyup event v1</h2>
+
+  <input (keyup)="onKeyUp($event)" />
+  <p>{{ values }}</p>
+</div>
+
+<div>
+  <!-- テンプレート参照変数を使用 -->
+  <h2>Keyup event v2</h2>
+
+  <input #keyup2 (keyup)="onKeyUp2(keyup2.value)" />
+  <p>{{ values2 }}</p>
+</div>
+
+<div>
+  <!-- キーイベントフィルタリングを使用（key.enter） -->
+  <h2>Keyup event v3</h2>
+
+  <input #keyup3 (keyup.enter)="onEnter(keyup3.value)" />
+  <p>{{ value }}</p>
+</div>
+
+<div>
+  <!-- Enterキーとblurイベントの両方をリッスン（Enterキーを押さずにページ上の他の場所にマウスクリックした場合を考慮） -->
+  <h2>Keyup evnet v4</h2>
+
+  <input #keyup4 (keyup.enter)="update(keyup4.value)" (blur)="update(keyup4.value)" />
+  <p>{{ value2 }}</p>
+</div>

@@ -1,0 +1,109 @@
+<div>
+  <h2>NgClass</h2>
+
+  <div [ngClass]="isFontLarge ? 'font-large' : ''">This div is special</div>
+
+  <div [ngClass]="currentClasses">This div is initially saveable, unchanged, and special.</div>
+</div>
+
+<div>
+  <h2>NgStyle</h2>
+
+  <div [style.font-size]="fontSize ? 'x-large' : 'smaller'">This div is x-large or small</div>
+  <button (click)="toggleFontSize()">Toggle font size</button>
+
+  <div [ngStyle]="currentStyles">This div is initially font size large (2em), color red, background color green.</div>
+</div>
+
+<div>
+  <h2>NgModel</h2>
+
+  <!-- NgModelディレクティブあり 双方向バインディングあり -->
+  <div>
+    <label for="example-ngModel">[(ngModel)]:</label>
+    <!-- DOMの再描画のためにinputイベントを発火する -->
+    <input id="example-ngModel" name="example-ngModel" type="text" [(ngModel)]="currentItem.name" (input)="0" />
+    {{ currentItem.name }}
+  </div>
+
+  <!-- NgModelディレクティブなし 双方向バインディングなし（valueプロパティとinputイベントで表現できる）-->
+  <div>
+    <label for="without">without NgModel:</label>
+    <input id="without" name="without" type="text" [value]="currentItem2.name" (input)="currentItem2.name = $event.target.value" />
+    {{ currentItem2.name }}
+  </div>
+
+  <!-- NgModelディレクティブあり 双方向バインディングなし（ngModelディレクティブで使用されるngModelChangeイベントを使用） -->
+  <div>
+    <label for="example-change">(ngModelChange)="...name=$event":</label>
+    <input id="example-change" name="example-change" type="text" [ngModel]="currentItem3.name" (ngModelChange)="currentItem3.name = $event" />
+    {{ currentItem3.name }}
+  </div>
+
+  <div>
+    <label for="example-change">(ngModelChange)="setUppercaseName($event)":</label>
+    <input id="example-change-uppercase" name="example-change-uppercase" type="text" [ngModel]="currentItem4.name" (ngModelChange)="setUppercaseName($event)" />
+    {{ currentItem4.name }}
+  </div>
+</div>
+
+<div>
+  <h2>NgIf</h2>
+
+  <app-item-detail *ngIf="isActive" [item]="item"></app-item-detail>
+
+  <div [class.hidden]="!hide">Show with class</div>
+  <div [class.hidden]="hide">Hide with class</div>
+
+  <p>ItemDetail is in the DOM but hidden</p>
+  <app-item-detail [class.hidden]="hide"></app-item-detail>
+
+  <div [style.display]="hide ? 'block' : 'none'">Show with style</div>
+  <div [style.display]="hide ? 'none' : 'block'">Hide with style</div>
+
+  <div *ngIf="currentCustomer">Hello, {{ currentCustomer.name }}</div>
+  <div *ngIf="nullCustomer">Hello, {{ nullCustomer }}</div>
+</div>
+
+<div>
+  <h2>NgFor</h2>
+
+  <div *ngFor="let item of items">
+    {{ item.name }}
+  </div>
+
+  <app-item-detail *ngFor="let item of items" [item]="item"></app-item-detail>
+
+  <div *ngFor="let item of items; let i = index">
+    {{ i + 1 }} - {{ item.name }}
+  </div>
+
+  <div>
+    <!-- itemsが更新されたときに、新しいDOM要素で古いDOM要素を置き換える -->
+    <h3>without trackBy</h3>
+    <div *ngFor="let item of items">
+      ({{ item.id }}) {{ item.name }}
+    </div>
+
+    <!-- itemsが更新されたときに、trackByで指定した値で追跡し、変更があったDOMのみ新しいDOM要素に置き換える -->
+    <h3>with trackBy</h3>
+    <div *ngFor="let item of items; trackBy: trackByItems">
+      ({{ item.id }}) {{ item.name }}
+    </div>
+
+    <button (click)="changeItemIds()">Change item ids</button>
+  </div>
+</div>
+
+<div>
+  <h2>NgSwitch</h2>
+
+  <div [ngSwitch]="switchItem.feature">
+    <app-stout-item *ngSwitchCase="'stout'" [item]="switchItem"></app-stout-item>
+    <app-device-item *ngSwitchCase="'slim'" [item]="currentItem"></app-device-item>
+    <app-lost-item *ngSwitchCase="'vintage'" [item]="currentItem"></app-lost-item>
+    <app-best-item *ngSwitchCase="'bright'" [item]="currentItem"></app-best-item>
+    <div *ngSwitchCase="'bright'">Are you as bright as {{ currentItem.name }}?</div>
+    <app-unknown-item *ngSwitchDefault [item]="currentItem"></app-unknown-item>
+  </div>
+</div>

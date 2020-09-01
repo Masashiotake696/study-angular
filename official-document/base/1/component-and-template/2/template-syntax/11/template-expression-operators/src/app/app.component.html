@@ -1,0 +1,15 @@
+<p>Title through uppercase pipe: {{ title | uppercase }}</p>
+
+<p>Title through a pipe chain: {{ title | uppercase | lowercase }}</p>
+
+<p>Manufacture date with date format pipe: {{ item.manufactureDate | date: 'longDate' }}</p>
+
+<p>Item json pipe: {{ item | json }}</p>
+
+<!-- Error -->
+<!-- <p>The null item name is: {{ nullItem.name }}</p> -->
+
+<!-- Not Error -->
+<p>The null item name is: {{ nullItem?.name }}</p>
+
+<p>The item's color is: {{ item.color!.toUpperCase() }}</p>

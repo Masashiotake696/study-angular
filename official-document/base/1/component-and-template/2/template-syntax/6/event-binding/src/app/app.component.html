@@ -1,0 +1,17 @@
+<button (click)="onSave($event)">Save</button>
+
+
+<h4>myClick is an event on the custom ClickDirective:</h4>
+<div>
+  <button (appMyClick)="clickMessage=$event">click with myClick</button>
+  {{ clickMessage }}
+</div>
+
+<div>
+  <input type="text" [value]="currentItem.name" (input)="currentItem.name=$event.target.value" />
+  {{ currentItem.name }}
+</div>
+
+<div>
+  <app-item-detail (deleteRequest)="deleteItem($event)" [item]="currentItem"></app-item-detail>
+</div>

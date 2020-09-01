@@ -1,0 +1,6 @@
+<div>
+  <h2>Reactive Form</h2>
+  Favorite Color: <input type="text" [formControl]="favoriteColorControl" (keyup.enter)="checkInput()" />
+  <button (click)="checkInput()">Check Input</button>
+  <button (click)="setValue()">Set Value</button>
+</div>

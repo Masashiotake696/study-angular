@@ -1,0 +1,32 @@
+.foo {
+  font-size: 2em;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.color-blue {
+  color: blue;
+}
+
+.background-color-green {
+  background-color: green;
+}
+
+.style-binding {
+  margin: 5px 0;
+  background-color: blue;
+}
+
+.special {
+  color: red;
+}
+
+.big {
+  font-size: 2em;
+}
+
+.blue {
+  color: blue;
+}

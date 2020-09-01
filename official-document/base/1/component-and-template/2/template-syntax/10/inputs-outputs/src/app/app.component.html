@@ -1,0 +1,11 @@
+<app-item-detail [item]="currentItem"></app-item-detail>
+
+<app-item-output (newItemEvent)="addItem($event)"></app-item-output>
+<p>Items</p>
+<ul>
+  <li *ngFor="let item of items">
+    {{ item }}
+  </li>
+</ul>
+
+<app-input-output [item]="currentItem" (deleteRequest)="crossOffItem($event)"></app-input-output>

@@ -1,0 +1,52 @@
+<div>
+  <h2>date</h2>
+
+  <p>The hero's birthday is {{ birthday | date }}</p>
+  <p>The hero's birthday is {{ birthday | date: 'MM/dd/yy' }}</p>
+  <p>The hero's birthday is {{ birthday | date: format }}</p>
+  <button (click)="toggleFormat()">Toggle Format</button>
+</div>
+
+<div>
+  <h2>currency</h2>
+
+  <p>{{ amount | currency }}</p>
+  <p>{{ amount | currency: 'EUR' }}</p>
+  <p>{{ amount | currency: 'EUR': 'Euros ' }}</p>
+</div>
+
+<div>
+  <h2>slice</h2>
+
+  <p>{{ text | slice: 1: 5 }}</p>
+</div>
+
+<div>
+  <h2>Pipe chain</h2>
+
+  <p>The chained hero's birthday is {{ birthday | date | uppercase }}</p>
+  <p>The chained hero's birthday is {{ birthday | date: 'fullDate' | uppercase }}</p>
+</div>
+
+
+<div>
+  <h2>Custom pipe</h2>
+
+  <app-power-booster></app-power-booster>
+
+  <app-power-boost-calculator></app-power-boost-calculator>
+</div>
+
+<div>
+  <h2>Change detection</h2>
+
+  <app-flying-heroes></app-flying-heroes>
+</div>
+
+<div>
+  <h2>Unwrapping data from an observable</h2>
+
+  <app-hero-async-message></app-hero-async-message>
+
+  <app-hero-list></app-hero-list>
+</div>

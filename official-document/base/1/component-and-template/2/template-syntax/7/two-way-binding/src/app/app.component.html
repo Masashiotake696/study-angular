@@ -1,0 +1,12 @@
+<div>
+  <h2>Two way 1</h2>
+  <!-- sizeプロパティにfontSizePx1プロパティをバインディング + sizeChangeイベント発生時に$eventをfontSizePx1プロパティに代入 -->
+  <app-sizer [(size)]="fontSizePx1"></app-sizer>
+  <div [style.font-size.px]="fontSizePx1">Resizable Text</div>
+</div>
+
+<div>
+  <h2>Two way 2</h2>
+  <app-sizer [size]="fontSizePx2" (sizeChange)="fontSizePx2=$event"></app-sizer>
+  <div [style.font-size.px]="fontSizePx2">Resizable Text</div>
+</div>

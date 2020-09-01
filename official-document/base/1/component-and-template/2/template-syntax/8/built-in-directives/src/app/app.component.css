@@ -1,0 +1,15 @@
+.font-large {
+  font-size: 2em;
+}
+
+.color-red {
+  color: red;
+}
+
+.background-color-green {
+  background-color: green;
+}
+
+.hidden {
+  display: none;
+}

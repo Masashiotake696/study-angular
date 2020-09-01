@@ -1,0 +1,31 @@
+<div>
+  <h1>バインディング構文</h1>
+  <hr />
+
+  <div>
+    <button [disabled]="isUnchanged">Save</button>
+  </div>
+
+  <hr />
+
+  <div>
+    <input type="text" value="Sarah" #bindingInput>
+    <div>
+      <button (click)="getHTMLAttributeValue()">Get HTML attribute value</button>
+    </div>
+    <div>
+      <button (click)="getDOMPropertyValue()">Get DOM property value</button>
+    </div>
+  </div>
+
+  <hr />
+
+  <div>
+    <div>
+      <button id="testButton" (click)="working()">Test Button</button>
+    </div>
+    <div>
+      <button (click)="toggleDisabled()">Toggle disabled property for Test Button</button>
+    </div>
+  </div>
+</div>
