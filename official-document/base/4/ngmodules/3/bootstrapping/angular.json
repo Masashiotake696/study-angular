@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "bootstrapping"
+    }
+  },
+  "defaultProject": "bootstrapping",
+  "cli": {
+    "analytics": false
+  }
 }

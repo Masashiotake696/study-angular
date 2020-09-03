@@ -1,0 +1,9 @@
+<h3 appHighlight>Customer Detail</h3>
+<div *ngIf="customer">
+  <div>Id: {{ customer.id }}</div>
+  <label>
+    Name:
+    <input [(ngModel)]="customer.name" />
+  </label>
+</div>
+<a routerLink="../">Customer List</a>

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "practical-observable-usage"
+    }
+  },
+  "defaultProject": "practical-observable-usage",
+  "cli": {
+    "analytics": false
+  }
 }

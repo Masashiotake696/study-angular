@@ -1,0 +1,21 @@
+<h2>{{ userName }}'s Contacts</h2>
+<div *ngIf="message" class="message">{{ message }}</div>
+
+<form *ngIf="contacts" (ngSubmit)="onSubmit()" [formGroup]="contactFormGroup">
+  <h3 appHighlight>{{ contact.name | awesome }}</h3>
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input id="name" type="text" formControlName="name" required />
+    <div *ngIf="!name.valid && name.touched" class="alert">
+      Name is required.
+    </div>
+  </div>
+
+  <div class="button-group">
+    <button type="submit" class="btn btn-default" [disabled]="!contactFormGroup.valid">Save</button>
+    <button type="button" class="btn" (click)="next()"
+      [disabled]="!contactFormGroup.valid && contactFormGroup.touched">Next Contact</button>
+    <button type="button" class="btn" (click)="newContact()">New Contact</button>
+  </div>
+</form>

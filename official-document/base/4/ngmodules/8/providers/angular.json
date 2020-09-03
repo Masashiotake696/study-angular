@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "providers"
+    }
+  },
+  "defaultProject": "providers",
+  "cli": {
+    "analytics": false
+  }
 }

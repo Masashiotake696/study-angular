@@ -1,0 +1,4 @@
+<h3 appHighlight>Customer List</h3>
+<div *ngFor="let customer of customers$ | async">
+  <a routerLink="{{ customer.id }}">{{ customer.id }} - {{ customer.name }}</a>
+</div>

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "observables-in-angular"
+    }
+  },
+  "defaultProject": "observables-in-angular",
+  "cli": {
+    "analytics": false
+  }
 }

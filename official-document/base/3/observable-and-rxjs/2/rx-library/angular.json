@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "rx-library"
+    }
+  },
+  "defaultProject": "rx-library",
+  "cli": {
+    "analytics": false
+  }
 }

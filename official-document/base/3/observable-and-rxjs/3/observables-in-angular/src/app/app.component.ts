@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'observables-in-angular';
+  onOpen(): void {
+    console.log('open');
+  }
+
+  onClose(): void {
+    console.log('close');
+  }
 }

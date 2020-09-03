@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "singleton-services"
+    }
+  },
+  "defaultProject": "singleton-services",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "lazy-loading-ngmodules"
+    }
+  },
+  "defaultProject": "lazy-loading-ngmodules",
+  "cli": {
+    "analytics": false
+  }
 }
