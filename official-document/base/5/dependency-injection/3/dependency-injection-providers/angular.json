@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "dependency-injection-providers"
+    }
+  },
+  "defaultProject": "dependency-injection-providers",
+  "cli": {
+    "analytics": false
+  }
 }

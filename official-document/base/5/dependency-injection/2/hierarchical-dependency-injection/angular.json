@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "hierarchical-dependency-injection"
+    }
+  },
+  "defaultProject": "hierarchical-dependency-injection",
+  "cli": {
+    "analytics": false
+  }
 }
