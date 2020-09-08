@@ -1,0 +1,22 @@
+<h3>Heroes</h3>
+
+<div>
+  <label>
+    Hero name:
+    <input type="text" #heroName />
+  </label>
+
+  <button (click)="addHero(heroName.value); heroName.value = ''">add</button>
+  <button (click)="searchHero(heroName.value)">search</button>
+</div>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a (click)="edit(hero)">
+      <span class="badge">{{ hero.id || -1 }}</span>
+      <span *ngIf="hero !== editHero">{{ hero.name }}</span>
+      <input *ngIf="hero === editHero" [(ngModel)]="hero.name" (blur)="updateHero()" (keyup.enter)="updateHero()" />
+    </a>
+    <button class="delete" title="delete hero" (click)="deleteHero(hero)">x</button>
+  </li>
+</ul>

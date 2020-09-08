@@ -12,6 +12,18 @@ import { HeroContactComponent } from './hero-contact/hero-contact.component';
 import { HighlightDirective } from './highlight.directive';
 import { StorageComponent } from './storage/storage.component';
 import { HeroOfTheMonthComponent } from './hero-of-the-month/hero-of-the-month.component';
+import {
+  CarolComponent,
+  ChrisComponent,
+  CraigComponent,
+  BarryComponent,
+  BobComponent,
+  BethComponent,
+  AlexComponent,
+  AliceComponent,
+  CathyComponent,
+  ParentFinderComponent
+} from './parent-finder/parent-finder.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +36,17 @@ import { HeroOfTheMonthComponent } from './hero-of-the-month/hero-of-the-month.c
     HeroContactComponent,
     HighlightDirective,
     StorageComponent,
-    HeroOfTheMonthComponent
+    HeroOfTheMonthComponent,
+    CarolComponent,
+    ChrisComponent,
+    CraigComponent,
+    BarryComponent,
+    BobComponent,
+    BethComponent,
+    AlexComponent,
+    AliceComponent,
+    CathyComponent,
+    ParentFinderComponent
   ],
   imports: [
     BrowserModule,

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "security"
+    }
+  },
+  "defaultProject": "security",
+  "cli": {
+    "analytics": false
+  }
 }
